@@ -45,3 +45,40 @@ bG9jaw==
 5               10      100000          5
 ```
 
+### Python 沙箱逃逸
+```
+重温2012.hack.lu的比赛题目，在这次挑战中，需要读取'./1.key'文件的内容。
+他们首先通过删除引用来销毁打开文件的内置函数。然后它们允许您执行用户输入。看看他们的代码稍微修改的版本：
+
+def make_secure():
+    UNSAFE = ['open',
+              'file',
+              'execfile',
+              'compile',
+              'reload',
+              '__import__',
+              'eval',
+              'input']
+    for func in UNSAFE:
+        del __builtins__.__dict__[func]
+from re import findall
+# Remove dangerous builtins
+make_secure()
+print 'Go Ahead, Expoit me >;D'
+while True:
+    try:
+        # Read user input until the first whitespace character
+        inp = findall('\S+', raw_input())[0]
+        a = None
+        # Set a to the result from executing the user input
+        exec 'a=' + inp
+        print 'Return Value:', a
+    except Exception, e:
+    print 'Exception:', e
+由于没有在__builtins__中引用file和open，所以常规的编码技巧是行不通的。但可以在Python解释器中挖掘出另一种代替file或open引用的方法。
+
+另类读取文件的方式：
+().__class__.__bases__[0].__subclasses__()[40]('1.key').read()
+这个方法依然可以读取到1.key的内容，coder,hack,geek可以深入了解下，本人测试时的python版本为：Python 2.7.12
+```
+
