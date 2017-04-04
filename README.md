@@ -61,7 +61,7 @@ bG9jaw==
   upgrade chromedriver 之后解决问题，官方文档说明了selenium支持好几个Browser driver。
   演示时用的是Chrome，python的unittest模块，文档上说也可以用pytest
 
-大致支持这几种DOM查找,不用语言的接口略微的小区别
+大致支持这以下几种DOM查找,不同语言的接口略微的小区别
   driver.findElement(By.id(<element ID>))
   driver.findElement(By.name(<element name>))
   driver.findElement(By.className(<element class>))
