@@ -53,6 +53,33 @@ bG9jaw==
 5               10      100000          5
 ```
 
+### selenium.py 自动化测试demo
+```
+坑1：
+  执行 python selenium.py 始终无法唤醒chrome。
+  最终发现chromedriver很早之前安装的，没有进行：brew upgrade chromedriver，导致执行脚本时报错
+  upgrade chromedriver 之后解决问题，官方文档说明了selenium支持好几个Browser driver。
+  演示时用的是Chrome，python的unittest模块，文档上说也可以用pytest
+
+大致支持这几种DOM查找,不用语言的接口略微的小区别
+  driver.findElement(By.id(<element ID>))
+  driver.findElement(By.name(<element name>))
+  driver.findElement(By.className(<element class>))
+  driver.findElement(By.tagName(<htmltagname>))
+  driver.findElement(By.linkText(<linktext>))
+  driver.findElement(By.partialLinkText(<linktext>))
+  driver.findElement(By.cssSelector(<css selector>))
+  driver.findElement(By.xpath(<xpath>))
+
+支持Using Selenium with remote WebDriver
+  支持远程WebDriver，默认监听4444端口
+  启动：brew services start selenium-server-standalone
+  停止：brew services stop selenium-server-standalone
+  访问http://127.0.0.1:4444 点击console,
+  新建正在测试所使用的webdriver,对于正在运行driver的测试程序，可以截图看当前测试程序的运行位置
+```
+
+
 ### Python 沙箱逃逸
 ```
 重温2012.hack.lu的比赛题目，在这次挑战中，需要读取'./1.key'文件的内容。
