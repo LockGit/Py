@@ -9,7 +9,7 @@ yield 没有逻辑意义，仅是作为暂停的标志点。程序流可以在�
 通过轮转队列依次唤起任务，并将已经完成的任务清出队列，模拟任务调度的过程。
 ```
 
-### coroutine.py python通过gevent第三方库实现协程
+### coroutine.py 通过gevent第三方库实现协程
 ```
 上面的dispatch.py通过yield提供了对协程的支持,模拟了任务调度。而下面的这个gevent第三方库就更简单了。
 
