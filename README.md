@@ -1,5 +1,61 @@
 # Python 
 
+### ac.py 一个字符串搜索算法（tire树+AC自动机)
+```
+这个算法在实际场景中的确使用到了，判断某个单词是否是敏感词，这就涉及到字符串查找。
+开发项目的时候,敏感词被封装成了一个api接口,开发人员使用起来也很方便,直接向api提交单词,
+看返回结果就知道是否命中,命中了则字符串存在,表明查找到了。
+
+隐约记得AC自动机，某种状态树结构，但是一直没有真正去看过这个接口实现。今天正好遇到了,剥离出来,复习知识点。
+需要数据结构与算法知识：
+参考文档1(海量数据处理之Tire树（字典树))：
+      http://blog.csdn.net/ts173383201/article/details/7858598
+参考文档2(AC自动机总结)：
+      http://blog.csdn.net/mobius_strip/article/details/22549517
+
+trie的核心思想是空间换时间,跟彩虹表的思想一致,但trie树不是彩虹表,
+简而言之,trie树利用字符串的公共前缀来降低查询时间的开销以达到提高效率的目的。
+
+它有3个基本性质：
+      根节点不包含字符，除根节点外每一个节点都只包含一个字符。
+      从根节点到某一节点，路径上经过的字符连接起来，为该节点对应的字符串。
+      每个节点的所有子节点包含的字符都不相同。
+
+复制了别人画的图，大致就是一种如下的树结构,问题还是在于如何用语言构造这棵树:
+```
+![](https://github.com/LockGit/Py/blob/master/img/tire.png)
+```
+➜  ~ du -h word.md && wc -l word.md
+1.0M  bad.txt
+57193 bad.txt
+
+本地测试了一下，57000条记录大于占1M硬盘空间，那么6M的空间大于包含记录34W条记录,
+我传到github的word.md没有几个字符,只做了演示,而且每个单词还加了rank等级，\t制表符,实际占用空间应该更小,
+生产环境甚至可以直接将这些数据缓存到内存中。
+```
+![](https://github.com/LockGit/Py/blob/master/img/cmd.png)
+```
+测试搜索指定字符串：
+
+查找到了
+➜  ~ python ac.py lock
+Good ! Find it, the item is:
+[(0, 3, 'lock', 1, 2)]
+
+查找到了
+➜  ~ python ac.py stop
+Good ! Find it, the item is:
+[(0, 3, 'stop', 2, 3)]
+
+没有查找到
+➜  ~ python ac.py test
+Sorry, The item not in file dict
+
+如果查找到了返回一个list，list中item类型为tuple, 并且包含了在树中匹配的起,终点位置index
+```
+
+
+
 ### dispatch.py 轮转队列
 ```
 你的手头上会有多个任务，每个任务耗时很长，而你又不想同步处理，而是希望能像多线程一样交替执行。
