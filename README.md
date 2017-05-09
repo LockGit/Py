@@ -26,8 +26,8 @@ trie的核心思想是空间换时间,跟彩虹表的思想一致,但trie树不�
 ![](https://github.com/LockGit/Py/blob/master/img/tire.png)
 ```
 ➜  ~ du -h word.md && wc -l word.md
-1.0M  bad.txt
-57193 bad.txt
+1.0M  word.md
+57193 word.md
 
 本地测试了一下，57000条记录大于占1M硬盘空间，那么6M的空间大约包含记录34W条记录,
 我传到github的word.md没有几个字符,只做了演示,而且每个单词还加了rank等级，\t制表符,实际占用空间应该更小,
