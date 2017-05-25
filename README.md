@@ -187,7 +187,7 @@ while True:
         exec 'a=' + inp
         print 'Return Value:', a
     except Exception, e:
-    print 'Exception:', e
+    	print 'Exception:', e
 由于没有在__builtins__中引用file和open，所以常规的编码技巧是行不通的。但可以在Python解释器中挖掘出另一种代替file或open引用的方法。
 
 另类读取文件的方式：
