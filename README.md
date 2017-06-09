@@ -54,6 +54,38 @@ Sorry, The item not in file dict
 如果查找到了返回一个list，list中item类型为tuple, 并且包含了在树中匹配的起,终点位置index
 ```
 
+### calc24.py 算24游戏小程序
+```
+游戏规则：给定4个数，可以执行的运算有 + - * / , 求出算的结果是24的算法过程
+
+get help：
+➜  Py git:(master) ✗ py calc24.py -h
+Usage: usage -n 1,2,3,4
+
+Options:
+  -h, --help  show this help message and exit
+  -n NUMS     specify num list
+  
+exp:
+➜  Py git:(master) ✗ py calc24.py -n 10,8,9,4
+[10, 8, 9, 4]
+9 - 10 = -1
+4 + -1 = 3
+8 * 3 = 24
+Success
+
+or random test:
+➜  Py git:(master) ✗ py calc24.py
+[9, 10, 3, 6]
+10 - 9 = 1
+3 + 1 = 4
+6 * 4 = 24
+Success
+
+~~~python轮子很强大~~~
+```
+
+
 ### dispatch.py 轮转队列
 ```
 你的手头上会有多个任务，每个任务耗时很长，而你又不想同步处理，而是希望能像多线程一样交替执行。
