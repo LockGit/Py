@@ -24,6 +24,31 @@ trie的核心思想是空间换时间,跟彩虹表的思想一致,但trie树不�
 复制了别人画的图，大致就是一种如下的树结构,问题还是在于如何用语言构造这棵树:
 ```
 ![](https://github.com/LockGit/Py/blob/master/img/tire.png)
+
+```
+fail 指针的理解图解,以下内容需要仔细读
+参考：http://www.cnblogs.com/crazyacking/p/4659501.html
+```
+![](https://github.com/LockGit/Py/blob/master/img/ac_fail_pointer.png)
+
+```
+树上的词分别是：
+{ he , hers , his , she}
+按图所示分成3层。看到第三层，是"she"，其中：
+①s指向root
+②h先找到s的fail指针
+发现是0号指针，不是h，然后h就不高兴了，再问问s的fail指针root：“你有没有儿子和我同名叫h的”
+root说：“有，你指向他吧”，然后h就高兴的指向了第一行的h.
+③e开始找了，首先问他老爸h：“你的fail指针指着谁”
+h说：“图上第一行那个h啊”
+然后e就屁颠屁颠地跑去问图上第一行那个h：“你有没有名字和我一样的儿子啊”
+图上第一行那个h说：“有，他地址是xxx”
+最后e的fail指针就指向xxx地址，也就是第一行那个e了
+发现这样，如果一个字符串查到第三行的e以后的字符才不匹配，那说明他前面应该有个‘he’
+刚好e的失败指针指向的是第一行的‘he...’的那个e；
+这样就不用从h开始再找一遍，而是接着第一行的e继续往后找，从而节省了时间.
+```
+
 ```
 ➜  ~ du -h word.md && wc -l word.md
 1.0M  word.md
