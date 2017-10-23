@@ -263,3 +263,21 @@ while True:
 这个方法依然可以读取到1.key的内容，coder,hack,geek可以深入了解下，本人测试时的python版本为：Python 2.7.12
 ```
 
+### revert_list.py 反转链表
+```
+➜  Py git:(master) ✗ py revert_list.py
+1
+2
+3
+start revert list ...
+3
+2
+1
+```
+
+### palindrome.py python版回文数，相对其他语言代码量少
+```
+life is short , use python
+-(1)时间复杂度：O(n)，空间复杂度：O(1)。从两头向中间扫描
+-(2)时间复杂度：O(n)，空间复杂度：O(1)。先从中间开始、然后向两边扩展
+```
