@@ -284,6 +284,8 @@ life is short , use python
 
 
 ### kmp.py kmp字符串查找算法
+```
 ➜  Py git:(master) ✗ python kmp.py
 Found 'sase' start at string 'asfdehhaassdsdasasedwa' 15 index position, find use times: 23
 Found 'sase' start at string '12s3sasexxx' 4 index position, find use times: 9
+```
