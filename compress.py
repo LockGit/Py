@@ -2,7 +2,7 @@
 # @Author: lock
 # @Date:   2017-12-15 00:11:32
 # @Last Modified by:   lock
-# @Last Modified time: 2017-12-15 00:32:31
+# @Last Modified time: 2017-12-15 00:34:55
 
 
 def compress(string):
@@ -36,7 +36,7 @@ def decompress(string):
 	return ''.join(decompress_list)
 
 def main():
-    string = "xAAACCCBBDBB"
+    string = "xAAACCCBBDBB111"
     print '原始字符串:%s' % (string,)
     print '压缩后:%s' % (compress(string),)
     print '解压后:%s' % (decompress(compress(string)),)

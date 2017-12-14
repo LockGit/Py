@@ -283,9 +283,37 @@ life is short , use python
 ```
 
 
-### kmp.py kmp字符串查找算法
+### kmp.py   kmp字符串查找算法
 ```
 ➜  Py git:(master) ✗ python kmp.py
 Found 'sase' start at string 'asfdehhaassdsdasasedwa' 15 index position, find use times: 23
 Found 'sase' start at string '12s3sasexxx' 4 index position, find use times: 9
 ```
+
+
+### compress.py 字符串压缩
+```
+针对连续重复较多的字符压缩，否则不起压缩效果
+➜  Py git:(master) ✗ python compress.py
+原始字符串:xAAACCCBBDBB111
+压缩后:x1A3C3B2D1B213
+执行解压...
+x
+A
+A
+A
+C
+C
+C
+B
+B
+D
+B
+B
+1
+1
+1
+解压完毕
+解压后:xAAACCCBBDBB111
+```
+
