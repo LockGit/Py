@@ -337,3 +337,50 @@ B
 解压后:xAAACCCBBDBB111
 ```
 
+### hashtable.py  hash表实现
+```
+hash_table = HashTable(5); # 分配5块
+hash_table.set(1,'x')
+print hash_table.get(1)
+
+核心代码：
+class Item(object):
+    def __init__(self, key, value):
+        self.key = key
+        self.value = value
+
+
+class HashTable(object):
+    def __init__(self, size):
+        self.size = size
+        self.table = [[] for _ in xrange(self.size)]
+
+    def hash_function(self, key):
+        return key % self.size
+
+    def set(self, key, value):
+        hash_index = self.hash_function(key)
+        for item in self.table[hash_index]:
+            if item.key == key:
+                item.value = value
+                return
+        self.table[hash_index].append(Item(key, value))
+
+    def get(self, key):
+        hash_index = self.hash_function(key)
+        for item in self.table[hash_index]:
+            if item.key == key:
+                return item.value
+        return None
+
+    def remove(self, key):
+        hash_index = self.hash_function(key)
+        for i, item in enumerate(self.table[hash_index]):
+            if item.key == key:
+                del self.table[hash_index][i]
+```
+
+
+
+
+
