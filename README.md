@@ -281,3 +281,9 @@ life is short , use python
 -(1)时间复杂度：O(n)，空间复杂度：O(1)。从两头向中间扫描
 -(2)时间复杂度：O(n)，空间复杂度：O(1)。先从中间开始、然后向两边扩展
 ```
+
+
+### kmp.py kmp字符串查找算法
+➜  Py git:(master) ✗ python kmp.py
+Found 'sase' start at string 'asfdehhaassdsdasasedwa' 15 index position, find use times: 23
+Found 'sase' start at string '12s3sasexxx' 4 index position, find use times: 9
