@@ -288,6 +288,26 @@ life is short , use python
 ➜  Py git:(master) ✗ python kmp.py
 Found 'sase' start at string 'asfdehhaassdsdasasedwa' 15 index position, find use times: 23
 Found 'sase' start at string '12s3sasexxx' 4 index position, find use times: 9
+
+核心算法：
+def kmp(string, match):
+    n = len(string)
+    m = len(match)
+    i = 0
+    j = 0
+    count_times_used = 0
+    while i < n:
+        count_times_used += 1
+        if match[j] == string[i]:
+            if j == m - 1:
+                print "Found '%s' start at string '%s' %s index position, find use times: %s" % (match, string, i - m + 1, count_times_used,)
+                return
+            i += 1
+            j += 1
+        elif j > 0:
+            j = j - 1
+        else:
+            i += 1
 ```
 
 
