@@ -409,6 +409,42 @@ class HashTable(object):
 ```
 
 
+### interpreter.py Python解释器理解
+```
+Python会执行其他3个步骤：词法分析，语法解析和编译。
+这三步合起来把源代码转换成code object,它包含着解释器可以理解的指令。而解释器的工作就是解释code object中的指令。
+核心代码
+class Interpreter:
+    def __init__(self):
+        self.stack = []
+
+    def load_value(self, number):
+        self.stack.append(number)
+
+    def print_answer(self):
+        answer = self.stack.pop()
+        print(answer)
+
+    def add_two_values(self):
+        first_num = self.stack.pop()
+        second_num = self.stack.pop()
+        total = first_num + second_num
+        self.stack.append(total)
+
+    def run_code(self, what_to_execute):
+            instructions = what_to_execute["instructions"]
+            numbers = what_to_execute["numbers"]
+            for each_step in instructions:
+                instruction, argument = each_step
+                if instruction == "load_value":
+                    number = numbers[argument]
+                    self.load_value(number)
+                elif instruction == "add_two_values":
+                    self.add_two_values()
+                elif instruction == "print_answer":
+                    self.print_answer()
+```
+
 
 
 
