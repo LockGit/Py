@@ -125,10 +125,38 @@ True 326 326
 ### dispatch.py 轮转队列
 ```
 你的手头上会有多个任务，每个任务耗时很长，而你又不想同步处理，而是希望能像多线程一样交替执行。
-
-yield 没有逻辑意义，仅是作为暂停的标志点。程序流可以在此暂停，也可以在此恢复。而通过实现一个调度器，完成多个任务的并行处理。
-
+yield 没有逻辑意义，仅是作为暂停的标志点。
+程序流可以在此暂停，也可以在此恢复。而通过实现一个调度器，完成多个任务的并行处理。
 通过轮转队列依次唤起任务，并将已经完成的任务清出队列，模拟任务调度的过程。
+核心代码：
+from collections import deque
+class Runner(object):
+    def __init__(self, tasks):
+        self.tasks = deque(tasks)
+
+    def next(self):
+        return self.tasks.pop()
+
+    def run(self):
+        while len(self.tasks):
+            task = self.next()
+            try:
+                next(task)
+            except StopIteration:
+                pass
+            else:
+                self.tasks.appendleft(task)
+
+def task(name, times):
+    for i in range(times):
+        yield
+        print(name, i)
+
+Runner([
+    task('hsfzxjy', 5),
+    task('Jack', 4),
+    task('Bob', 6)
+]).run()
 ```
 
 ### coroutine.py 通过gevent第三方库实现协程
