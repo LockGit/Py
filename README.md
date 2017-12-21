@@ -482,4 +482,21 @@ print '快慢指针方式,单链表中间节点为:%s,索引为:%s，只遍历�
 ```
 
 
+### 支持向量机 svm.py
+```
+迟早会忘记的svm
+分类算法，寻找一个最优超平面
+demo为线性可分离数据
+
+参考1：https://zh.wikipedia.org/zh-hans/支持向量机
+参考2：http://blog.csdn.net/viewcode/article/details/12840405
+参考3：http://blog.csdn.net/lisi1129/article/details/70209945?locationNum=8&fps=1
+
+依赖：
+pip install numpy
+pip install matplotlib
+
+执行：python svm.py
+```
+![](https://github.com/LockGit/Py/blob/master/img/svm.png)
 
