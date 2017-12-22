@@ -1,5 +1,23 @@
 # Python 
 
+### nice_download.py 多线程文件下载器
+```
+理论在大型文件下载，带宽充足的情况下，可增加数十倍下载速度
+原理是多线程对目标文件分块下载
+1,发送head请求获取目标文件总大小，以及当前是否支持分块下载(详情:http协议header头range及response的content-range)，现在基本都支持
+2,下载前创建一个和要下载文件一样大小的文件
+3,根据1中获得的文件大小分块多线程,各个线程下载不同的数据块
+太小型文件的文件可能看不出加速效果，在大型文件上就会比普通下载拉大差距
+关于http的range特性：
+有些文件下载器在下载中断的之后可以在中断位置继续下载，而不必重新开始的原因就是利用了支持range的特性
+记录了中断时的文件偏移位置,在实现时只要在中断异常的时候记录文件偏移位置到临时文件
+下次继续下载读取临时文件中的偏移即可支持断点下载,下载完成时删除记录文件偏移的临时文件即可
+说明：
+nice_download.py是多线程模式,所以去除断点下载功能，否则维护临时文件偏移位置比维护单一进程的临时文件偏移位置要复杂的多
+查看帮助：python nice_download.py -h
+```
+![](https://github.com/LockGit/Py/blob/master/img/download.gif)
+
 ### ac.py 一个字符串搜索算法（tire树+AC自动机)
 ```
 学习记录:
@@ -188,7 +206,7 @@ GET: https://github.com/
 ```
 
 
-### base64.py base64加密原理
+### base64_str.py base64加密原理
 ```
 Base64加密原理，使用Python实现Base64加密，可能有bug，未完全完善版
 1,准备一个包含64个字符的数组
@@ -200,7 +218,7 @@ Base64加密原理，使用Python实现Base64加密，可能有bug，未完全�
 Base64编码会把3字节的二进制数据编码为4字节的文本数据，长度增加33%
 
 例：
-➜  Py git:(master) ✗ python base64.py lock
+➜  Py git:(master) ✗ python base64_str.py lock
 bG9jaw==
 ➜  Py git:(master) ✗ echo -n lock|base64
 bG9jaw==
