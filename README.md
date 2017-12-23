@@ -499,11 +499,27 @@ while (p2.next is not None and p2.next.next is not None):
 print '快慢指针方式,单链表中间节点为:%s,索引为:%s，只遍历一次链表' % (p1.data,step)
 ```
 
+### K最近邻算法
+```
+这个算法比svm简单很多
+只需使用初中所学的两点距离公式（欧拉距离公式），计算绿点到各组的距离，看绿点和哪组更接近。
+K代表取当前要分类的点最近的k个点，这k个点如果其中属于红点个数占多数，我们就认为绿点应该划分为红组，反之，则划分为黑组。
+k值与分类数成正相关，现在是2个分组，那么k值取3，假设是3个分组，那么k值就要取5
+参考说明：https://zh.wikipedia.org/wiki/最近鄰居法
+依赖：
+pip install numpy
+pip install matplotlib
+
+下图中标注较大的红点在计算之后被分配到红组
+执行：python knn.py
+```
+![](https://github.com/LockGit/Py/blob/master/img/knn.png)
+
 
 ### 支持向量机 svm.py
 ```
 迟早会忘记的svm
-分类算法，寻找一个最优超平面
+属分类算法，目标是寻找一个最优超平面，比knn算法复杂
 demo为线性可分离数据
 
 参考1：https://zh.wikipedia.org/zh-hans/支持向量机
