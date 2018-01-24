@@ -534,3 +534,14 @@ pip install matplotlib
 ```
 ![](https://github.com/LockGit/Py/blob/master/img/svm.png)
 
+
+### (前序，中序，后序，层序) btree.py
+```
+➜  Py git:(master) ✗ python btree.py
+前序遍历： root A C D F G B E
+中序遍历： C F D G A root B E
+后序遍历： F G D C A E B root
+层序遍历： root A B C E D F G
+构造树结构如下图
+```
+![](https://github.com/LockGit/Py/blob/master/img/btree.png)
