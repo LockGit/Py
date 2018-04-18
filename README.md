@@ -32,7 +32,7 @@ pip install numpy
 已有大多相关案例，测试相关总结与截图如下:
 ```
 ![](https://github.com/LockGit/Hacking/blob/master/img/cnn_test.png)
-+[相关截图](https://github.com/LockGit/Hacking#基于机器学习tensorflow的复杂验证码识别)
+[详相说明相关截图](https://github.com/LockGit/Hacking#基于机器学习tensorflow的复杂验证码识别)
 总结文档：[基于机器学习(TensorFlow)的复杂验证码识别.pdf](https://github.com/LockGit/Hacking/blob/master/res/doc/基于机器学习(TensorFlow)的复杂验证码识别.pdf)
 
 
