@@ -18,6 +18,24 @@ nice_download.py是多线程模式,所以去除断点下载功能，否则维护
 ```
 ![](https://github.com/LockGit/Py/blob/master/img/download.gif)
 
+
+### 基于tensorflow的验证码识别
+```
+依赖:
+pip install tensorflow
+pip install numpy
+
+0x01,cd tensorflow
+0x02,模型训练：python train.py
+0x03,验证验证：python cnn_test.py
+
+已有大多相关案例，测试相关总结与截图如下:
+```
+![](https://github.com/LockGit/Hacking/blob/master/img/cnn_test.png)
++[相关截图](https://github.com/LockGit/Hacking#基于机器学习tensorflow的复杂验证码识别)
+总结文档：[基于机器学习(TensorFlow)的复杂验证码识别.pdf](https://github.com/LockGit/Hacking/blob/master/res/doc/基于机器学习(TensorFlow)的复杂验证码识别.pdf)
+
+
 ### ac.py 字符串搜索算法（tire树+AC自动机)
 ```
 学习记录:
