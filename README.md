@@ -565,7 +565,7 @@ pip install matplotlib
 ![](https://github.com/LockGit/Py/blob/master/img/btree.png)
 
 
-### Scrapy 爬虫测试
+### Scrapy 爬虫测试（项目代码在仓库crawl_360目录下）
 ```
 安装依赖：
 pip install Scrapy 
@@ -617,10 +617,12 @@ sqlacodegen --outfile=models.py mysql://root@localhost:3306/crawl --tables butia
 生成一个爬虫：
 cd crawl_360 && scrapy genspider butian butian.360.cn/Loo
 
-编写爬虫代码 (xpath代码30多行)
+编写爬虫代码 (crawl_360目录下，xpath代码30行即可)
 
 爬取：scrapy crawl butian
 
 另：selenium也是一款非常不错的工具，可是使用selenium调用Browser driver更加逼真真实用户操作
 ```
+![](https://github.com/LockGit/Py/blob/master/img/crawl_run.gif)
+![](https://github.com/LockGit/Py/blob/master/img/crawl_db_data.png)
 
