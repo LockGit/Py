@@ -563,3 +563,64 @@ pip install matplotlib
 构造树结构如下图
 ```
 ![](https://github.com/LockGit/Py/blob/master/img/btree.png)
+
+
+### Scrapy 爬虫测试
+```
+安装依赖：
+pip install Scrapy 
+pip install sqlalchemy 
+pip install sqlacodegen
+pip install mysql-connector
+
+创建db：CREATE DATABASE crawl DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci
+
+创建表：crawl_360/readme/sql.sql 文件
+
+sqlacodegen创建models：
+sqlacodegen --outfile=models.py mysql://root@localhost:3306/crawl --tables butian
+
+
+找测试的目标抓取页面：http://butian.360.cn/Loo 页面被披露漏洞的企业列表
+
+创建项目: scrapy startproject crawl_360
+
+目录结构:
+➜  crawl_360 tree
+.
+├── crawl_360
+│   ├── __init__.py
+│   ├── __init__.pyc
+│   ├── items.py
+│   ├── items.pyc
+│   ├── middlewares.py
+│   ├── models
+│   │   ├── __init__.py
+│   │   ├── __init__.pyc
+│   │   ├── db.py
+│   │   ├── db.pyc
+│   │   ├── models.py
+│   │   └── models.pyc
+│   ├── pipelines.py
+│   ├── pipelines.pyc
+│   ├── reademe
+│   │   └── sql.sql
+│   ├── settings.py
+│   ├── settings.pyc
+│   └── spiders
+│       ├── __init__.py
+│       ├── __init__.pyc
+│       ├── butian.py
+│       └── butian.pyc
+└── scrapy.cfg
+
+生成一个爬虫：
+cd crawl_360 && scrapy genspider butian butian.360.cn/Loo
+
+编写爬虫代码 (xpath代码30多行)
+
+爬取：scrapy crawl butian
+
+另：selenium也是一款非常不错的工具，可是使用selenium调用Browser driver更加逼真真实用户操作
+```
+
