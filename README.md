@@ -38,8 +38,10 @@ pip install numpy
 总结文档：[基于机器学习(TensorFlow)的复杂验证码识别.pdf](https://github.com/LockGit/Hacking/blob/master/res/doc/基于机器学习(TensorFlow)的复杂验证码识别.pdf)
 
 
-### redpackage.py 一种红包分配思路
+### redpackage.py && red_package_optimize.py 一种红包分配思路
 ```
+red_package_optimize.py为优化版，redpackage.py的range有点浪费内存，比如在红包个数特别大的情况下
+
 指定红包总金额，再指定红包的个数，获得每个红包分配金额详情
 
 例，红包总金额为10元，分成7个
