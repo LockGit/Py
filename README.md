@@ -54,7 +54,7 @@ pip install numpy
 第 7 个红包金额:1.29元
 验证:红包总金额 is 10.0元, 分配后 res sum is 10.0元
 ```
-![](https://github.com/LockGit/Hacking/blob/master/img/redpackage.gif)
+![](https://github.com/LockGit/Py/blob/master/img/redpackage.gif)
 
 ### ac.py 字符串搜索算法（tire树+AC自动机)
 ```
