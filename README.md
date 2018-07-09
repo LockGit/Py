@@ -38,6 +38,24 @@ pip install numpy
 总结文档：[基于机器学习(TensorFlow)的复杂验证码识别.pdf](https://github.com/LockGit/Hacking/blob/master/res/doc/基于机器学习(TensorFlow)的复杂验证码识别.pdf)
 
 
+### redpackage.py 一种红包分配思路
+```
+指定红包总金额，再指定红包的个数，获得每个红包分配金额详情
+
+例，红包总金额为10元，分成7个
+➜  Py git:(master) ✗ py redpackage.py 10 7
+[0.57, 2.37, 1.91, 0.32, 1.3, 2.24, 1.29]
+第 1 个红包金额:0.57元
+第 2 个红包金额:2.37元
+第 3 个红包金额:1.91元
+第 4 个红包金额:0.32元
+第 5 个红包金额:1.3元
+第 6 个红包金额:2.24元
+第 7 个红包金额:1.29元
+验证:红包总金额 is 10.0元, 分配后 res sum is 10.0元
+```
+![](https://github.com/LockGit/Hacking/blob/master/img/redpackage.gif)
+
 ### ac.py 字符串搜索算法（tire树+AC自动机)
 ```
 学习记录:
@@ -628,3 +646,62 @@ cd crawl_360 && scrapy genspider butian butian.360.cn/Loo
 ![](https://github.com/LockGit/Py/blob/master/img/crawl_run.gif)
 ![](https://github.com/LockGit/Py/blob/master/img/crawl_db_data.png)
 
+
+
+### Celery 分布式任务队列Test (仓库celery文件夹下)
+```
+pip3 install celery
+pip3 install redis
+编写tasks.py
+```
+```python
+from celery import Celery
+
+app = Celery('TASK', broker='redis://127.0.0.1', backend='redis://127.0.0.1')
+
+
+@app.task
+def add(x, y):
+    print 'start ...'
+    print 'get param :%s,%s' % (x, y,)
+    return x + y
+```
+```
+启动celery worker 来开始监听并执行任务
+celery -A tasks worker --loglevel=info
+tasks 任务文件名，worker 任务角色，--loglevel=info 任务日志级别
+
+127.0.0.1:6379> keys *
+1) "_kombu.binding.celery"
+2) "_kombu.binding.celeryev"
+3) "_kombu.binding.celery.pidbox"
+127.0.0.1:6379>
+
+redis 集合结构(set),查看value:
+SMEMBERS _kombu.binding.celery
+
+在tasks.py文件目录打开终端进入py的交互式模式
+>>> from tasks import add
+>>> add.delay(1,2)
+<AsyncResult: edb1b071-ed94-46fc-8250-a13e3db0e1a4>
+>>> t = add.delay(4,5)
+>>> t.get()
+9
+>>> t.ready()
+True
+
+celery常用接口
+tasks.add(4,6) ---> 本地执行
+tasks.add.delay(3,4) --> worker执行
+t=tasks.add.delay(3,4)  --> t.get()  获取结果，或卡住，阻塞
+t.ready()---> False：未执行完，True：已执行完
+t.get(propagate=False) 抛出简单异常，但程序不会停止
+t.traceback 追踪完整异常
+
+计算结果保存在redis中,默认结果有效期为1天
+127.0.0.1:6379> ttl celery-task-meta-6eb3ee46-e86d-409a-9eb5-0c7d9b005035
+(integer) 85917
+127.0.0.1:6379> get celery-task-meta-6eb3ee46-e86d-409a-9eb5-0c7d9b005035
+"{\"status\": \"SUCCESS\", \"traceback\": null, \"result\": 9, \"task_id\": \"6eb3ee46-e86d-409a-9eb5-0c7d9b005035\", \"children\": []}"
+127.0.0.1:6379>
+```
