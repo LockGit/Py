@@ -6,6 +6,10 @@ from random import choice
 import sys
 
 def calc_red_package(m,c):
+	if c*0.01*100>m:
+		print '红包总金额为:%s元不能划分成%s个红包'%(m/100.0,c,)
+		exit()
+		
 	all = {}
 	val = m/c
 	left = m-(val*c)
