@@ -24,7 +24,7 @@ def adjust_heap(seq, root, length):
         root_max = left_child
     if right_child < length and seq[right_child] > seq[root_max]:
         root_max = right_child
-    if root_max != root:  # 如果做了堆调整,则root_max的值等于左节点或者右节点的，进行对调值操作
+    if root_max != root:  # 如果做了堆调整,则root_max变更后是左节点或者右节点的，进行对调值操作
         seq[root_max], seq[root] = seq[root], seq[root_max]
         adjust_heap(seq, root_max, length)
 
