@@ -365,11 +365,14 @@ start revert list ...
 1
 ```
 
-### palindrome.py python版回文数，相对其他语言代码量少
+### palindrome.py python版回文数,heapq_sort.py基于堆排序
 ```
 life is short , use python
 -(1)时间复杂度：O(n)，空间复杂度：O(1)。从两头向中间扫描
 -(2)时间复杂度：O(n)，空间复杂度：O(1)。先从中间开始、然后向两边扩展
+
+堆排实现，python对有对应封装好的heapq模块
+py heapq_sort.py
 ```
 
 
