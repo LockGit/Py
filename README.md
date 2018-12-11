@@ -1,5 +1,5 @@
 # Python 
-[![Build Status](https://travis-ci.org/LockGit/Py.svg?branch=master)](https://travis-ci.org/zhanghe06/news_spider)
+[![Build Status](https://travis-ci.org/LockGit/Py.svg?branch=master)](https://travis-ci.org/LockGit/Py)
 
 ### nice_download.py 多线程文件下载器
 ```
