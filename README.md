@@ -1,6 +1,12 @@
 # Python 
 [![Build Status](https://travis-ci.org/LockGit/Py.svg?branch=master)](https://travis-ci.org/LockGit/Py)
 
+### 基于mitm中间人的形式获取所有公众号历史文章，评论，阅读量
+```
+支持增量更新与自动化，可水平扩展，处理流程图如下：
+```
+![](https://github.com/LockGit/Py/blob/master/img/spider-wx.png)
+
 ### nice_download.py 多线程文件下载器
 ```
 理论在大型文件下载，带宽充足的情况下，可增加数十倍下载速度

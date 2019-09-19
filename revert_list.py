@@ -1,10 +1,8 @@
-
 # -*- coding: utf-8 -*-
 # @Author: lock
 # @Date:   2017-09-05 10:53:46
 # @Last Modified by:   lock
-# @Last Modified time: 2017-10-23 10:09:40
-
+# @Last Modified time: 2019-06-10 16:21:00
 
 class Node():
 
