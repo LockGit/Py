@@ -5,6 +5,7 @@
 # @Last Modified time: 2017-12-14 23:31:06
 
 
+# 只是字符串匹配，还不是真正的kmp
 def kmp(string, match):
     n = len(string)
     m = len(match)
