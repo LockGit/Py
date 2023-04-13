@@ -9,7 +9,6 @@ feature
 3，支持抓取封禁后继续恢复抓取
 4，支持各阶段时间频率控制
 5，支持持续监控指定公众号
-代码暂不开源，如有问题交流可在该仓库提issue,对应处理流程图如下：
 ```
 ![](https://github.com/LockGit/Py/blob/master/img/spider-wx.png)
 
