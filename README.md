@@ -1,5 +1,5 @@
 # Python 
-[![Build Status](https://travis-ci.org/LockGit/Py.svg?branch=master)](https://travis-ci.org/LockGit/Py)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/LockGit/gochat/issues)
 
 ### 基于mitm中间人的形式获取所有公众号历史文章，评论，阅读量
 ```
